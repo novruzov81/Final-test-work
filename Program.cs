@@ -1,17 +1,21 @@
-﻿string[] array1 = new string[5] {"123", "23", "hello", "world", "res"};
+﻿string[] array1;
+Console.WriteLine("Введите массив строк через запятую");
+string stroka = Console.ReadLine();
+array1 = stroka.Split(',');
+
 string[] array2 = new string[array1.Length];
-void SecondArrayWithIF(string[] array1, string[] array2)
+
+int count = 0;
+for (int i = 0; i < array1.Length; i++)
 {
-    int count = 0;
-    for (int i = 0; i < array1.Length; i++)
+if(array1[i].Length <= 3)
     {
-    if(array1[i].Length <= 3)
-        {
-        array2[count] = array1[i];
-        count++;
-        }
+    array2[count] = array1[i];
+    count++;
     }
 }
+PrintArray(array2);
+
 void PrintArray(string[] array)
 {
     for (int i = 0; i < array.Length; i++)
@@ -20,5 +24,3 @@ void PrintArray(string[] array)
     }
     Console.WriteLine();
 }
-SecondArrayWithIF(array1, array2);
-PrintArray(array2);
